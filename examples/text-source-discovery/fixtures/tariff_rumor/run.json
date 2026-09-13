@@ -1,0 +1,41 @@
+{
+  "report": "# Source discovery report — 40% electronics import duty rumour\n\n## Headline finding\nThe claim is not supported by any primary source. The earliest traceable\npublication is tradejournal.example\n(https://tradejournal.example/policy/electronics-duty-consultation-opens,\n2026-06-28 16:40 UTC), which reports that a consultation on consumer\nelectronics duties has opened. It names no rate and no start date.\n\n## How the claim drifted\nThe \"40%\" figure and the \"next month\" start date first appear together on an\naggregator post with no byline\n(https://viral-roundup.example/2026/06/electronics-tariff), published after the\nconsultation notice and citing no document. The instruction to retailers to\nhalt orders appears nowhere outside that post.\n\n## Corroboration of the underlying event\nThe consultation itself is confirmed independently by the ministry notice\ncarried at policywatch.example, published the same day, which sets a 60-day\ncomment window.\n\n## Limitations\nThe aggregator post carries no timestamp, so its position in the chain is\ninferred from the first archive capture rather than observed directly.\n",
+  "nodes": {
+    "planner": {
+      "status": "succeeded",
+      "elapsed": 2.1,
+      "outputs": {
+        "queries_json": "[\"consumer electronics import duty consultation 2026\", \"\\\"40%\\\" electronics tariff next month\", \"electronics duty retailers halt orders\", \"site:tradejournal.example electronics duty 2026\"]",
+        "usage": {
+          "prompt_tokens": 598,
+          "completion_tokens": 187,
+          "total_tokens": 785,
+          "total_price": "0.0008",
+          "currency": "USD"
+        }
+      }
+    },
+    "sources": {
+      "status": "succeeded",
+      "elapsed": 12.8,
+      "outputs": {
+        "sources_json": "[{\"url\": \"https://tradejournal.example/policy/electronics-duty-consultation-opens\", \"domain\": \"tradejournal.example\", \"title\": \"Consultation opens on consumer electronics duties\", \"published\": \"2026-06-28T16:40:00+00:00\", \"match\": \"exact\"}, {\"url\": \"https://policywatch.example/notices/electronics-duty-consultation\", \"domain\": \"policywatch.example\", \"title\": \"Ministry notice: 60-day comment window on electronics duties\", \"published\": \"2026-06-28T00:00:00+00:00\", \"match\": \"exact\"}, {\"url\": \"https://cityledger.example/business/electronics-duty-consultation\", \"domain\": \"cityledger.example\", \"title\": \"Retailers await detail as electronics duty review begins\", \"published\": \"2026-06-29T08:30:00+00:00\", \"match\": \"exact\"}, {\"url\": \"https://viral-roundup.example/2026/06/electronics-tariff\", \"domain\": \"viral-roundup.example\", \"title\": \"40% TARIFF ON ALL ELECTRONICS STARTS NEXT MONTH\", \"published\": null, \"match\": \"near\"}]"
+      }
+    },
+    "report_writer": {
+      "status": "succeeded",
+      "elapsed": 16.2,
+      "outputs": {
+        "usage": {
+          "prompt_tokens": 2377,
+          "completion_tokens": 1004,
+          "total_tokens": 3381,
+          "total_price": "0.0045",
+          "currency": "USD"
+        }
+      }
+    }
+  },
+  "elapsed": 33,
+  "status": "succeeded"
+}

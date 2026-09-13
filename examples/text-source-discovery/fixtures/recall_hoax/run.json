@@ -1,0 +1,51 @@
+{
+  "output": "# Source discovery report — XR-40 power bank recall claim\n\n## Headline finding\nThe recall is real; the cabin-ban clause attached to it is not. The earliest\ntraceable publication of the recall itself is newswire.example\n(https://newswire.example/2026/07/04/xr-40-power-bank-recall, 2026-07-04\n09:12 UTC), reporting a voluntary manufacturer recall of a single battery lot.\n\n## Corroboration\ncityledger.example carried the same recall 41 minutes later\n(https://cityledger.example/business/xr40-recall, 2026-07-04 09:53 UTC),\nsourced from its own regulator filing rather than from the wire — an\nindependent second domain.\n\n## The added claim\nThe \"airlines banning them from hand luggage effective immediately\" wording\ndoes not appear in either report. Its earliest traceable use is the debunk at\nfactcheck.example (https://factcheck.example/claims/xr40-cabin-ban,\n2026-07-05), which traces it to a reshared post and finds no carrier notice\nbehind it.\n\n## Limitations\nArchive coverage of the first six hours is incomplete, so an earlier posting of\nthe cabin-ban wording cannot be excluded.\n",
+  "nodes": {
+    "planner": {
+      "status": "succeeded",
+      "elapsed": 2.4,
+      "outputs": {
+        "queries_json": "[\"XR-40 power bank recall 2026\", \"\\\"XR-40\\\" recall airline cabin ban\", \"site:newswire.example XR-40 recall July 2026\", \"XR-40 power bank hand luggage ban fact check\"]",
+        "usage": {
+          "prompt_tokens": 611,
+          "completion_tokens": 201,
+          "total_tokens": 812,
+          "total_price": "0.0009",
+          "currency": "USD"
+        }
+      }
+    },
+    "sources": {
+      "status": "succeeded",
+      "elapsed": 15.1,
+      "outputs": {
+        "sources_json": "[{\"url\": \"https://newswire.example/2026/07/04/xr-40-power-bank-recall\", \"domain\": \"newswire.example\", \"title\": \"XR-40 power banks recalled over single battery lot\", \"published\": \"2026-07-04T09:12:00+00:00\", \"match\": \"exact\"}, {\"url\": \"https://cityledger.example/business/xr40-recall\", \"domain\": \"cityledger.example\", \"title\": \"Regulator filing confirms XR-40 power bank recall\", \"published\": \"2026-07-04T09:53:00+00:00\", \"match\": \"exact\"}, {\"url\": \"https://factcheck.example/claims/xr40-cabin-ban\", \"domain\": \"factcheck.example\", \"title\": \"No evidence for an immediate cabin ban on XR-40 power banks\", \"published\": \"2026-07-05T14:02:00+00:00\", \"match\": \"near\"}]"
+      }
+    },
+    "report_writer": {
+      "status": "succeeded",
+      "elapsed": 18.7,
+      "outputs": {
+        "usage": {
+          "prompt_tokens": 2140,
+          "completion_tokens": 933,
+          "total_tokens": 3073,
+          "total_price": "0.0041",
+          "currency": "USD"
+        }
+      }
+    }
+  },
+  "usage": {
+    "tokens": 3885,
+    "cost": {
+      "USD": 0.005
+    },
+    "nodes_without_usage": 1
+  },
+  "meta": {
+    "status": "succeeded",
+    "elapsed": 41.2
+  },
+  "error": null
+}

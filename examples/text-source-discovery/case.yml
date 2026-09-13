@@ -1,0 +1,54 @@
+# Demo case: evaluate a "text source discovery" Dify workflow offline.
+#
+#   difyeval run examples/text-source-discovery/case.yml --no-judge
+#
+# Two samples, file runner (pre-recorded fixtures — one in the native Run
+# shape, one in the legacy archive shape), deterministic gates + an
+# advisory judge rubric/tradecraft pair that are skipped under --no-judge.
+#
+# All domains below use the RFC 2606 `.example` TLD: the fixtures are
+# synthetic, and no URL here resolves to a real publication.
+case_id: text_source_discovery_demo
+mode: reference
+
+runner:
+  type: file
+  path: fixtures/{sample_id}/run.json
+
+dataset:
+  - id: recall_hoax
+    inputs:
+      goal: comprehensive source discovery
+      textInput: >
+        BREAKING: every XR-40 power bank is being recalled after a cabin fire —
+        airlines are banning them from hand luggage effective immediately
+    reference:
+      expected_domains: [newswire.example, cityledger.example]
+
+  - id: tariff_rumor
+    inputs:
+      goal: earliest source + spread
+      textInput: >
+        A 40% import duty on all consumer electronics starts next month and
+        retailers have been told to halt orders, sources say
+    reference:
+      expected_domains: [tradejournal.example]
+
+checks:
+  - {id: has_report, type: output.nonempty, gate: true}
+  - {id: min_sources, type: node.json_count, selector: nodes.sources.outputs.sources_json, min: 3, gate: true}
+  - {id: cites_expected, type: output.contains, values_from: reference.expected_domains, gate: true}
+  - id: rubric
+    type: judge.rubric
+    items:
+      - {id: earliest_source, weight: essential, item: "The report identifies a single earliest source with both a URL and a publication date."}
+      - {id: cross_check, weight: expected, item: "The earliest-source claim is corroborated by at least one second, independent domain."}
+      - {id: limitations, weight: bonus, item: "The report states at least one limitation or unverified aspect of the discovery."}
+  - {id: craft, type: judge.tradecraft}
+
+expect_verdict: PASS
+
+judge_notes: >
+  Reports were produced by an automated text-source-discovery workflow (query
+  planning -> web search agent -> report LLM). Judge the report text only; the
+  search agent's raw results are not available to you.
